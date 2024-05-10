@@ -1,0 +1,52 @@
+﻿@model List<DataTransferObjects.Models.Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<h1>Index</h1>
+@* 
+<p>
+    <a asp-action="Create" asp-asp-controller="Student">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Courses Registered
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.RegisteredCourse)
+            </td>
+            <td>
+                <a asp-controller="Student" asp-action="RegisterCourse" asp-route-studentId="@item.Id">Register Course</a> |
+                <a asp-controller="Student" asp-action="UnRegisterCourse" asp-route-studentId="@item.Id">UnRegister Course</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

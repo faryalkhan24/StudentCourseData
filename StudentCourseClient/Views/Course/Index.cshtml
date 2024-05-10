@@ -1,0 +1,60 @@
+﻿@model List<DataTransferObjects.Models.Course>
+
+@{
+    ViewData["Title"] = "Course List";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Course Code
+            </th>
+            <th>
+                Course Name
+            </th>
+            <th>
+                Teacher Name
+            </th>
+            <th>
+                Max Capicity
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+               @*  @Html.ActionLink("Edit", "Edit") |
+                @Html.ActionLink("Delete", "Delete") 
+                Can futher add actions, controller against these methods are created *@
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
